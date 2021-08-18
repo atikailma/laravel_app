@@ -110,7 +110,7 @@ class OrderController extends Controller
     {
         $data= Order::findOrFail($id);
         $detail= OrderDetail::where('order_id',$id)->with('product')->get();
-        //dd($detail);
-        $pdf = PDF::loadView('admin.slip.index_pembelian', compact(['data','detail']));
+        //dd($detail,$data);
+        $pdf = PDF::loadView('admin.slip.index_penjualan', compact(['data','detail']));
         return $pdf->download('slip.pdf');    }
 }
